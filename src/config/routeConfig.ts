@@ -1,8 +1,6 @@
-
-import Home from "../pages/Home";
-import NetworkError from "../pages/NetworkError";
+import Home from "../Item/Home";
 import { createBrowserRouter } from "react-router-dom";
-import MasterLayout from "../pages/MasterLayout";
+import MasterLayout from "../components/MasterLayout";
 
 const routes = [
   {
@@ -12,11 +10,6 @@ const routes = [
       {
         path: "/",
         element: <Home />,
-        // role: [""],
-      },
-      {
-        path: "/network-error",
-        element: <NetworkError />,
         // role: [""],
       },
     ],

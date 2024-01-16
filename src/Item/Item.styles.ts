@@ -45,4 +45,11 @@ div{
   .checked {
     color: orange;
   }
+  .card{
+    position:relative;
+    transition:1s;
+  }
+  .card:hover{
+    top: -10px;
+  }
 `;

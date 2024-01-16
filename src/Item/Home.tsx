@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
-import Item from './Item/Item'
-import LinearProgress from '@material-ui/core/LinearProgress'
-import Grid from '@material-ui/core/Grid'
-import NavBar from './components/Header'
-import Footer from './component/Footer'
-import { Wrapper } from './App.styles';
+import Item from './Item'
+import LinearProgress from '@mui/material/LinearProgress';
+import Grid from '@mui/material/Grid';
+// import NavBar from './components/NavBar'
+import { Wrapper } from './Item.styles';
 import { CartItemType } from './CartItemType'
-
 
 const Home = () => {
 
@@ -17,8 +15,8 @@ const Home = () => {
   const [products, setProducts] = useState([] as CartItemType[]);
   // const [cartItems, setCartItems] = useState([] as CartItemType[])
   const [data, setData] = useState([] as CartItemType[])
-  const [searchInput, setSearchInput] = useState('');
-  const [titlesArr, setTitlesArr] = useState([]);
+ //   const [searchInput, setSearchInput] = useState('');
+ //   const [titlesArr, setTitlesArr] = useState([]);
   
   const getProducts = async () => {
     try {
@@ -266,6 +264,7 @@ const Home = () => {
           }
         }
       ]
+      
       setData(productsArr);
       const uniqueCategories = [...new Set(productsArr.map((d) => d.category))];
       setSelectionArr([...selectionArr, ...uniqueCategories]);
@@ -288,7 +287,7 @@ const Home = () => {
     }
   }
   
-  const searchItems = (searchValue: string) => {
+    const searchItems = (searchValue: string) => {
     setSearchInput(searchValue);
     if (searchValue !== '') {
       const filteredProducts = products.filter((item) => {
@@ -330,7 +329,7 @@ const Home = () => {
 
   return (
     <>
-      <NavBar titlesArr={titlesArr} setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} searchItems={searchItems} />
+      {/* <NavBar titlesArr={titlesArr} setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} searchItems={searchItems} /> */}
       <Wrapper>
         <Grid container spacing={3}>
           {products?.map(item => (
@@ -340,8 +339,7 @@ const Home = () => {
           ))}
         </Grid>
       </Wrapper>
-
-</>
+    </>
   );
 }
 export default Home
