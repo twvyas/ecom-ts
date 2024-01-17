@@ -2,10 +2,15 @@ import Home from "../Item/Home";
 import { createBrowserRouter } from "react-router-dom";
 import MasterLayout from "../components/MasterLayout";
 
-const routes = [
+// const routes = 
+
+// const router = createBrowserRouter(routes);
+// export default router;
+
+export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MasterLayout />,
+    element:  <MasterLayout/>,
     children: [
       {
         path: "/",
@@ -14,7 +19,4 @@ const routes = [
       },
     ],
   },
-];
-
-const router = createBrowserRouter(routes);
-export default router;
+]);

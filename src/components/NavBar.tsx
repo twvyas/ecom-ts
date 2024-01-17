@@ -99,13 +99,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaSearch } from 'react-icons/fa';
 
-interface NavBarProps {
-  selectionArr: string[];
-  setSearchInput: React.Dispatch<React.SetStateAction<string>>;
-  titlesArr: string[];
-}
+// interface NavBarProps {
+//   selectionArr: string[];
+//   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
+//   titlesArr: string[];
+// }
 
-const NavBar: React.FC<NavBarProps> = ({ selectionArr, setSearchInput, titlesArr }) => {
+const NavBar= () => {
   // const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('All');
   const [inputValue, setInputValue] = useState('');
