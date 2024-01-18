@@ -1,59 +1,72 @@
 import React from 'react';
-import {  Container, Nav, InputGroup, FormControl, Button } from 'react-bootstrap';
 
-const ProductDetails = () => {
-  return (
-    <header>
-      <div className="p-3 text-center bg-white border-bottom">
-        <Container>
-          <div className="row gy-3">
-            <div className="col-lg-2 col-sm-4 col-4">
-              <a href="https://mdbootstrap.com/" target="_blank" className="float-start">
-                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" alt="MDB Logo" />
-              </a>
-            </div>
 
-            <div className="order-lg-last col-lg-5 col-sm-8 col-8">
-              <div className="d-flex float-end">
-                <a href="" className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank">
-                  <i className="fas fa-user-alt m-1 me-md-2"></i><p className="d-none d-md-block mb-0">Sign in</p>
-                </a>
-                <a href="" className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank">
-                  <i className="fas fa-heart m-1 me-md-2"></i><p className="d-none d-md-block mb-0">Wishlist</p>
-                </a>
-                <a href="" className="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank">
-                  <i className="fas fa-shopping-cart m-1 me-md-2"></i><p className="d-none d-md-block mb-0">My cart</p>
-                </a>
-              </div>
-            </div>
- 
-            <div className="col-lg-5 col-md-12 col-12">
-              <InputGroup className="float-center">
-                <FormControl type="search" id="form1" className="form-control" />
-                <Button variant="primary" className="shadow-0">
-                  <i className="fas fa-search"></i>
-                </Button>
-              </InputGroup>
-            </div>
-          </div>
-        </Container>
-      </div>
 
-      <div className="bg-primary">
-        <Container className="py-4">
-          <Nav className="d-flex">
-            <h6 className="mb-0">
-              <Nav.Link href="#" className="text-white-50">Home</Nav.Link>
-              <span className="text-white-50 mx-2">  </span>
-              <Nav.Link href="#" className="text-white-50">Library</Nav.Link>
-              <span className="text-white-50 mx-2">  </span>
-              <Nav.Link href="#" className="text-white"><u>Data</u></Nav.Link>
-            </h6>
-          </Nav>
-        </Container>
-      </div>
-    </header>
-  );
-}
+
+
+const ProductDetails: React.FC = () => {
+    return (
+        <div className="container-fluid bg-light py-5">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-6 mb-4">
+                        <div className="h-100 rounded-lg bg-secondary mb-4">
+                            <img className="w-100 h-100 object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image" />
+                        </div>
+                        <div className="row">
+                            <div className="col-6">
+                                <button className="btn btn-dark btn-block mb-2">Add to Cart</button>
+                            </div>
+                            <div className="col-6">
+                                <button className="btn btn-light btn-block mb-2">Add to Wishlist</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-6 mb-4">
+                        <h2 className="h2 text-dark font-weight-bold mb-2">Product Name</h2>
+                        <p className="text-secondary text-sm mb-4">
+                        </p>
+                        <div className="row mb-4">
+                            <div className="col-6">
+                                <span className="font-weight-bold text-dark">Price:</span>
+                                <span className="text-secondary">$29.99</span>
+                            </div>
+                            <div className="col-6">
+                                <span className="font-weight-bold text-dark">Availability:</span>
+                                <span className="text-secondary">In Stock</span>
+                            </div>
+                        </div>
+                        <div className="mb-4">
+                            <span className="font-weight-bold text-dark">Select Color:</span>
+                            <div className="d-flex mt-2">
+                                <button className="w-6 h-6 rounded-circle bg-dark mr-2"></button>
+                                <button className="w-6 h-6 rounded-circle bg-danger mr-2"></button>
+                                <button className="w-6 h-6 rounded-circle bg-primary mr-2"></button>
+                                <button className="w-6 h-6 rounded-circle bg-warning mr-2"></button>
+                            </div>
+                        </div>
+                        <div className="mb-4">
+                            <span className="font-weight-bold text-dark">Select Size:</span>
+                            <div className="d-flex mt-2">
+                                <button className="btn btn-dark rounded-pill font-weight-bold mr-2">S</button>
+                                <button className="btn btn-dark rounded-pill font-weight-bold mr-2">M</button>
+                                <button className="btn btn-dark rounded-pill font-weight-bold mr-2">L</button>
+                                <button className="btn btn-dark rounded-pill font-weight-bold mr-2">XL</button>
+                                <button className="btn btn-dark rounded-pill font-weight-bold mr-2">XXL</button>
+                            </div>
+                        </div>
+                        <div>
+                            <span className="font-weight-bold text-dark">Product Description:</span>
+                            <p className="text-secondary text-sm mt-2">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    );
+};
 
 export default ProductDetails;
