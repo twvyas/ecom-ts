@@ -97,7 +97,6 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FaSearch } from 'react-icons/fa';
 
 // interface NavBarProps {
 //   selectionArr: string[];
@@ -161,7 +160,7 @@ const NavBar= () => {
               ))}
             </datalist>
             <Button variant="outline-dark">
-              <FaSearch />
+            <i className="far fa-shopping-cart"></i>
             </Button>
           </Form>
         </Navbar.Collapse>

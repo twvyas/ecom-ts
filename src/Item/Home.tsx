@@ -1,30 +1,34 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react'
 import Item from './Item'
 import LinearProgress from '@mui/material/LinearProgress';
 import Grid from '@mui/material/Grid';
-// import NavBar from './components/NavBar'
 import { Wrapper } from './Item.styles';
 import { CartItemType } from './CartItemType'
+
 import { useDispatch } from 'react-redux';
+import { productFetchSuccess, productFetchFailure} from "../redux/productRedux";
+import { useSelector } from "react-redux";
+import { products as P } from "../redux/productRedux";
+import { instance } from '../utils/function';
 
 
 
 const Home = () => {
+  
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [categories, setCategories] = useState("All");
-  const [selectionArr, setSelectionArr] = useState(["All"]);
   const [products, setProducts] = useState([] as CartItemType[]);
-  // const [cartItems, setCartItems] = useState([] as CartItemType[])
   const [data, setData] = useState([] as CartItemType[])
- //   const [searchInput, setSearchInput] = useState('');
- //   const [titlesArr, setTitlesArr] = useState([]);
-  
+
+ const productList = useSelector(P);
   const getProducts = async () => {
     try {
       setIsLoading(true);
-       const productsArr = await apiCall.get("products"); // use axios(instance) instead of this 
+       const productsArr = await instance.get("products");
+
       // const productsArr = [
       //   {
       //     "id": 1,
@@ -268,45 +272,52 @@ const Home = () => {
       //   }
       // ]
       
-      setData(productsArr.data);
-      const uniqueCategories = [...new Set(productsArr.map((d) => d.category))];
-      setSelectionArr([...selectionArr, ...uniqueCategories]);
-      console.log(uniqueCategories)
-
+      // setData(productsArr.data);
+      // const uniqueCategories = [...new Set(productsArr.map((d) => d.category))];
+      // setSelectionArr([...selectionArr, ...uniqueCategories]);
+      // console.log(uniqueCategories)
+      dispatch(productFetchSuccess(productsArr.data));
     } catch (error) {
       console.log("Error fetching products:", error);
+      dispatch(productFetchFailure());
       setError(true)
     } finally {
       setIsLoading(false);
     }
   };
 
-  const filterProducts = async () => {
-    if (categories === "All") {
-      setProducts(data);
-    } else {
-      const filterData = data.filter((d) => d.category === categories);
-      setProducts(filterData);
-    }
-  }
+  // const filterProducts = async () => {
+  //   if (categories === "All") {
+  //     setProducts(data);
+  //   } else {
+  //     const filterData = data.filter((d) => d.category === categories);
+  //     setProducts(filterData);
+  //   }
+  // }
   
-    const searchItems = (searchValue: string) => {
-    setSearchInput(searchValue);
-    if (searchValue !== '') {
-      const filteredProducts = products.filter((item) => {
-        return (
-          Object.values(item)
-            .filter((value) => typeof value === 'string')
-            .join('')
-            .toLowerCase()
-            .includes(searchValue.toLowerCase())
-        );
-      });
-      setProducts(filteredProducts);
-    } else {
-      filterProducts(); 
-    }
-  };
+  //   const searchItems = (searchValue: string) => {
+  //   setSearchInput(searchValue);
+  //   if (searchValue !== '') {
+  //     const filteredProducts = products.filter((item) => {
+  //       return (
+  //         Object.values(item)
+  //           .filter((value) => typeof value === 'string')
+  //           .join('')
+  //           .toLowerCase()
+  //           .includes(searchValue.toLowerCase())
+  //       );
+  //     });
+  //     setProducts(filteredProducts);
+  //   } else {
+  //     filterProducts(); 
+  //   }
+  // };
+
+ // Update local state when Redux state changes
+ 
+ useEffect(() => {
+  setProducts(productList);
+}, [productList]);
 
   useEffect(() => {
     getProducts();
@@ -324,8 +335,7 @@ const Home = () => {
       setTitlesArr([...uniqueTitlesArr]);
   }, [products]);
 
-  const handleAddToCart = (clickedItem: CartItemType) => null;
-  // const handleRemoveFromCart = () => null;
+  const handleAddToCart = (_clickedItem: CartItemType) => null;
 
   if (isLoading) return <LinearProgress />
   if (error) return <div>Something went wrong ...</div>
@@ -346,3 +356,4 @@ const Home = () => {
   );
 }
 export default Home
+
