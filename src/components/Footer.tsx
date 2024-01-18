@@ -1,15 +1,20 @@
-// import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 export default function Footer() {
   return (
-    <footer className="text-center text-lg-start bg-body-tertiary text-muted">
-      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <footer className="text-center text-lg-start fixed-bottom bg-body-tertiary bg-white  text-muted">
+    <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <div className="me-5 d-none d-lg-block">
-          <span>Get connected with us on social networks:</span>
+       
         </div>
 
-        <div>
+        
+    
+      </section>
+   
+      <div className="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+      <div>
           <a href="" className="me-4 text-reset">
             <i className="fab fa-facebook-f"></i>
           </a>
@@ -29,11 +34,8 @@ export default function Footer() {
             <i className="fab fa-github"></i>
           </a>
         </div>
-    
-      </section>
-   
-      <div className="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2024 Copyright: 
+      
+           © 2024 Copyright: 
         <a className="text-reset fw-bold" href="https://mdbootstrap.com/">Store.com</a>
       </div>
     </footer>

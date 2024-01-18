@@ -5,9 +5,12 @@ import Grid from '@mui/material/Grid';
 // import NavBar from './components/NavBar'
 import { Wrapper } from './Item.styles';
 import { CartItemType } from './CartItemType'
+import { useDispatch } from 'react-redux';
+
+
 
 const Home = () => {
-
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [categories, setCategories] = useState("All");
