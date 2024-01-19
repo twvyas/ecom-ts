@@ -24,10 +24,14 @@ function App() {
       dispatch(productFetchFailure());
     }
   };
-
   useEffect(() => {
     getProducts();
   }, []);
+
+
+
+
+
 
   return (
     <>

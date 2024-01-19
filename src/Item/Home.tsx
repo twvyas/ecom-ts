@@ -4,24 +4,17 @@ import Grid from '@mui/material/Grid';
 import { Wrapper } from './Item.styles';
 import { CartItemType } from './CartItemType'
 
-// import { useDispatch } from 'react-redux';
-// import { productFetchSuccess, productFetchFailure } from "../redux/productRedux";
 import { useSelector } from "react-redux";
 import { filteredProducts } from "../redux/productRedux";
-// import { instance } from '../utils/function';
-
-
 
 const Home = () => {
-
-  
   const [products, setProducts] = useState([] as CartItemType[]);
-  // const [data, setData] = useState([] as CartItemType[])
 
   const productList = useSelector(filteredProducts);
   useEffect(() => {
     setProducts(productList);
   }, [productList]);
+
   // const filterProducts = async () => {
   //   if (categories === "All") {
   //     setProducts(data);
@@ -49,8 +42,6 @@ const Home = () => {
   //   }
   // };
 
-  // Update local state when Redux state changes
-
   //  useEffect(() => {
   //   setProducts(productList);
   // }, [productList]);
@@ -72,11 +63,9 @@ const Home = () => {
   // }, [products]);
 
   const handleAddToCart = () => null;
-
-
-
   return (
-    <Wrapper>
+    <div>
+    <Wrapper style={{backgroundColor:'',margin:'5rem'}}>
       <Grid container spacing={3}>
         {products?.map(item => (
           <Grid item key={item.id} xs={12} sm={3}>
@@ -85,6 +74,7 @@ const Home = () => {
         ))}
       </Grid>
     </Wrapper>
+    </div>
   );
 }
 export default Home

@@ -7,7 +7,6 @@
 // import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
-// import { FaSearch } from "react-icons/fa";
 
 // function NavBar(props: {
 //   // searchItems(value: string): unknown;
@@ -86,11 +85,7 @@
 
 // export default NavBar;
 
-
-
 import React, { useEffect, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { setSelectedValue } from './path-to-your-actions'; 
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -99,8 +94,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useAppSelector } from '../utils/hooks';
 import { categoryArr } from '../redux/productRedux';
-
-
 
 const NavBar= () => {
   const [selectedValue, setSelectedValue] = useState('All');
@@ -112,18 +105,17 @@ const NavBar= () => {
     setSelectionArr(catArr);
   }, [catArr]);
 
-
   const handleSelect = (selectedItem: string) => {
     setSelectedValue(selectedItem);
-
   };
 
+
   return (
-    <Navbar
+    <Navbar  style={{ backgroundColor: 'rgba(0, 0, 0, 0.09)' }}
       expand="lg"
-      className="bg-body-tertiary fixed-top border-bottom rounded-bottom shadow mb-5 bg-white rounded"
-    >
-      <Container fluid>
+      className="bg-body-tertiary fixed-top border-bottom rounded-bottom shadow mb-5 bg-white rounded">
+
+      <Container fluid >
         <Navbar.Brand href="/">Store</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -149,8 +141,6 @@ const NavBar= () => {
               value={inputValue}
               onChange={(e) => {
                 setInputValue(e.target.value);
-                // setSearchInput(e.target.value);
-                // Dispatch additional actions if needed
               }}
               style={{
                 width: '400px',
@@ -162,7 +152,7 @@ const NavBar= () => {
               ))}
             </datalist> */}
             <Button variant="outline-dark">
-            <i className="far fa-shopping-cart"></i>
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
             </Button>
           </Form>
         </Navbar.Collapse>

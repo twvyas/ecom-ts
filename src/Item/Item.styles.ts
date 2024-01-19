@@ -4,15 +4,12 @@ export const Wrapper = styled.div`
 
 display:flex;
 justify-content:space-between;
+margin:auto;
 flex-direction:column;
-width:100%;
-border:1px solid lightblue;
 border-radius:20px;
-height:100%;
 
 button{
-    border-radius:0 0 20px 20px;
-    
+    border-radius:0 0 20px 20px;  
 }
  
 img{
@@ -50,6 +47,6 @@ div{
     transition:1s;
   }
   .card:hover{
-    top: -10px;
-  }
+    top: -2px;
+    background: rgba(0, 0, 0, 0.09);
 `;

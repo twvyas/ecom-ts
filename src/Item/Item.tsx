@@ -1,6 +1,8 @@
 import Button from 'react-bootstrap/Button';
-import { CartItemType } from './CartItemType'
+import { useNavigate} from 'react-router-dom';
 
+// import { Route } from 'react-router-dom';
+import { CartItemType } from './CartItemType'
 type Props = {
   item: CartItemType;
   handleAddToCart: (clickedItem: CartItemType) => void;
@@ -10,21 +12,25 @@ const Item = ({ item, handleAddToCart }:Props) => {
   const renderStars = () => {
     const filledStars = Math.round(item.rating.rate); 
     const stars = [];
-
     for (let i = 1; i <= 5; i++) {
       const starClass = i <= filledStars ? 'fa-solid fa-star' : 'fa-regular fa-star';
       stars.push(<i key={i} className={starClass} />);
     }
-
     return stars;
   };
 
+  const navigate = useNavigate();
+
+  const navigateToProductPage = () => {
+    // 👇️ navigate to /contacts
+    navigate('/productPage', { state: { selectedItem: item } });
+  };
   return (
-    <div className="card" style={{ width: '18rem' , margin:'auto'}}>
+    <div className="card" style={{ width: '18rem' , margin:'auto', backgroundColor:''}} onClick={navigateToProductPage}>
       <br />
       <img
         className="card-img-top"
-        style={{ width: '10rem', height: '10rem', margin: 'auto' ,objectFit:'scale-down'}}
+        style={{ width: '10rem', height: '10rem', margin: 'auto' ,objectFit:'scale-down', backgroundColor:''}}
         src={item.image}
         alt={item.title}
       />
@@ -66,7 +72,8 @@ const Item = ({ item, handleAddToCart }:Props) => {
         <br />
       </div>
       <div className="card-body" style={{ borderRadius: '0 0 40px 40px' }}>
-        <Button className="btn btn-dark" onClick={() => handleAddToCart(item)}>
+        
+        <Button className="btn btn-dark" >
           Add to Cart
         </Button>
       </div>
@@ -75,3 +82,4 @@ const Item = ({ item, handleAddToCart }:Props) => {
 }
 
 export default Item;
+
