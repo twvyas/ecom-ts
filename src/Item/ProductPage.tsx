@@ -4,6 +4,15 @@ import { useLocation } from 'react-router-dom';
 const ProductDetails: React.FC = () => {
     const location = useLocation();
   const selectedItem = location.state?.selectedItem || {}; 
+   const renderStars = () => {
+    const filledStars = Math.round(selectedItem.rating.rate); 
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      const starClass = i <= filledStars ? 'fa-solid fa-star' : 'fa-regular fa-star';
+      stars.push(<i key={i} className={starClass} />);
+    }
+    return stars;
+  };
 
     return (
         <div className="container-fluid bg-light py-5 "  style={{backgroundColor:'',margin:'5rem'}}>
@@ -22,6 +31,13 @@ const ProductDetails: React.FC = () => {
                             <div className="col-6">
                                 <span className="font-weight-bold text-dark">Price: </span>
                                 <span className="text-secondary">${selectedItem.price}</span>
+                            </div>                 
+                        </div>
+
+                        <div className="row mb-4">
+                            <div className="col-6">
+                                <span className="font-weight-bold text-dark"> </span>
+                                <span className="text-secondary">{renderStars()}</span>
                             </div>                 
                         </div>
                         <div className="mb-4">

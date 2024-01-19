@@ -73,7 +73,7 @@ const Item = ({ item, handleAddToCart }:Props) => {
       </div>
       <div className="card-body" style={{ borderRadius: '0 0 40px 40px' }}>
         
-        <Button className="btn btn-dark" >
+        <Button className="btn btn-dark" onClick={() => handleAddToCart(item)}>
           Add to Cart
         </Button>
       </div>

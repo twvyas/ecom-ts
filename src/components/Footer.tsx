@@ -24,7 +24,7 @@ export default function Footer() {
           </a>
         </div>
 
-          <p className="m-0">© 2024 Copyright: <a className="text-reset fw-bold" href="#">Store.com</a></p>
+          {/* <p className="m-0">© 2024 Copyright: <a className="text-reset fw-bold" href="#">Store.com</a></p> */}
       </div>
     </footer>
   

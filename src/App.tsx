@@ -11,8 +11,12 @@ import { useEffect } from "react";
 import { CartItemType } from "./Item/CartItemType";
 
 function App() {
+  
   const catArr = useAppSelector(categoryArr)
   const dispatch = useAppDispatch();
+
+
+
   const getProducts = async () => {
     try {
       const productsArr = await instance.get("");
@@ -27,9 +31,6 @@ function App() {
   useEffect(() => {
     getProducts();
   }, []);
-
-
-
 
 
 
