@@ -66,7 +66,7 @@ const ProductDetails: React.FC = () => {
                     </div>
                 </div>
             </div>
-            {/* <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false" data-bs-interval="false">
+            <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false" data-bs-interval="false">
   <div className="carousel-inner">
     <div className="carousel-item active">
       <img src="..." className="d-block w-100" alt="..."/>
@@ -86,7 +86,7 @@ const ProductDetails: React.FC = () => {
     <span className="carousel-control-next-icon" aria-hidden="true"></span>
     <span className="visually-hidden">Next</span>
   </button>
-            </div> */}
+            </div>
         </div>   
     );
 };

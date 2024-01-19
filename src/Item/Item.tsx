@@ -22,7 +22,6 @@ const Item = ({ item, handleAddToCart }:Props) => {
   const navigate = useNavigate();
 
   const navigateToProductPage = () => {
-    // 👇️ navigate to /contacts
     navigate('/productPage', { state: { selectedItem: item } });
   };
   return (
@@ -30,7 +29,7 @@ const Item = ({ item, handleAddToCart }:Props) => {
       <br />
       <img
         className="card-img-top"
-        style={{ width: '10rem', height: '10rem', margin: 'auto' ,objectFit:'scale-down', backgroundColor:''}}
+        style={{ width: '12rem', height: '12rem', margin: 'auto' ,objectFit:'scale-down', backgroundColor:''}}
         src={item.image}
         alt={item.title}
       />
