@@ -2,8 +2,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 export default function Footer() {
   return (
     <footer className="text-center text-lg-start fixed-bottom bg-body-tertiary bg-white  text-muted">
-
-   
       <div className="text-center p-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.09)' }}>
       <div>
           <a href="" className="me-4 text-reset">
@@ -26,8 +24,7 @@ export default function Footer() {
           </a>
         </div>
 
-        © 2024 Copyright: 
-        <a className="text-reset fw-bold" href="">Store.com</a>
+          <p className="m-0">© 2024 Copyright: <a className="text-reset fw-bold" href="#">Store.com</a></p>
       </div>
     </footer>
   

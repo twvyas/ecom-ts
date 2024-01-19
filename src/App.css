@@ -1,39 +1,25 @@
-/* App.css */
-
-.sidenav {
+.vertical .carousel-inner {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
 }
 
-.sidenav.open {
-  width: 250px;
+.vertical .carousel-item {
+  flex: 1;
+  width: 100%;
 }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
+.vertical .carousel-control-prev,
+.vertical .carousel-control-next {
+  transform: rotate(90deg);
   position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+  top: 50%;
+  left: -10px;
+  bottom: auto;
+  right: auto;
+  transform: translateY(-50%);
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  background: #fff; /* Add background color if needed */
 }

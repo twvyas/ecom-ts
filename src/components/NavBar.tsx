@@ -88,7 +88,7 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { setSelectedValue } from './path-to-your-actions'; 
 import Button from 'react-bootstrap/Button';
@@ -97,23 +97,25 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useAppSelector } from '../utils/hooks';
+import { categoryArr } from '../redux/productRedux';
 
-// interface NavBarProps {
-//   selectionArr: string[];
-//   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
-//   titlesArr: string[];
-// }
+
 
 const NavBar= () => {
-//   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('All');
   const [inputValue, setInputValue] = useState('');
+  const [selectionArr, setSelectionArr] = useState([]);
+
+  const catArr = useAppSelector(categoryArr);
+  useEffect(() => {
+    setSelectionArr(catArr);
+  }, [catArr]);
+
 
   const handleSelect = (selectedItem: string) => {
     setSelectedValue(selectedItem);
-    dispatch(setSelectedValue(selectedItem)); 
-    setSearchInput('');
-    setInputValue('');
+
   };
 
   return (
@@ -147,18 +149,18 @@ const NavBar= () => {
               value={inputValue}
               onChange={(e) => {
                 setInputValue(e.target.value);
-                setSearchInput(e.target.value);
+                // setSearchInput(e.target.value);
                 // Dispatch additional actions if needed
               }}
               style={{
                 width: '400px',
               }}
             />
-            <datalist id="titlesList">
+            {/* <datalist id="titlesList">
               {titlesArr.map((title) => (
                 <option key={title} value={title} />
               ))}
-            </datalist>
+            </datalist> */}
             <Button variant="outline-dark">
             <i className="far fa-shopping-cart"></i>
             </Button>
