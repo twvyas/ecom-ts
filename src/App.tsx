@@ -14,9 +14,7 @@ function App() {
   
   const catArr = useAppSelector(categoryArr)
   const dispatch = useAppDispatch();
-
-
-
+  
   const getProducts = async () => {
     try {
       const productsArr = await instance.get("");

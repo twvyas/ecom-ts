@@ -5,6 +5,7 @@ import { Wrapper } from './Item.styles';
 import { CartItemType } from './CartItemType'
 
 import { useSelector } from "react-redux";
+
 import { filteredProducts } from "../redux/productRedux";
 
 const Home = () => {
