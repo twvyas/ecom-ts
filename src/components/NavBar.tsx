@@ -41,13 +41,21 @@ const NavBar= () => {
     dispatch(searchProducts(inputValue));
   };
 
+  // const handleSelect = (selectedItem: string) => {
+  //   const filteredProducts = selectedItem === 'All'
+  //   ? productList 
+  //   : productList.filter((product) => product.category === selectedItem);
+  //   setSelectedCategory(selectedItem);  
+  // dispatch(setFilteredProducts(filteredProducts));
+  // };
   const handleSelect = (selectedItem: string) => {
-    const filteredProducts = selectedItem === 'All'
-    ? productList 
-    : productList.filter((product) => product.category === selectedItem);
-    setSelectedCategory(selectedItem);  
-  dispatch(setFilteredProducts(filteredProducts));
+    dispatch(setSelectedCategory(selectedItem));
+    dispatch(setFilteredProducts(
+      selectedItem === 'All' ? productList : productList.filter((product) => product.category === selectedItem)
+    ));
   };
+
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -56,9 +64,11 @@ const NavBar= () => {
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent the default form submission behavior
       dispatch(searchProducts(inputValue));
     }
   };
+  
 
 
   return (
@@ -74,7 +84,7 @@ const NavBar= () => {
             <Nav.Link href="#action2"></Nav.Link>
             <Nav.Link href="#" disabled></Nav.Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
             <NavDropdown title={selectedCategory} id="navbarScrollingDropdown" onSelect={handleSelect}>
               {selectionArr.map((Selection: string, index: number) => (
                 <NavDropdown.Item key={index} eventKey={Selection}>
@@ -82,6 +92,8 @@ const NavBar= () => {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
+
+
                  {/* <select value={selectedCategory} onChange={(e) => handleSelect(e.target.value)}>
         {selectionArr.map((category) => (
           <option key={category} value={category}>
@@ -98,7 +110,7 @@ const NavBar= () => {
               list="titlesList"
               value={inputValue}
               onChange={handleInputChange}
-          onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyPress}
               style={{
                 width: '400px',
               }}
